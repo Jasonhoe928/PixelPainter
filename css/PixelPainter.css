@@ -18,17 +18,16 @@
     width: 30px;
     height: 30px;
     padding: 4px;
-    border: blue 1px solid;
+    border: yellowgreen 1px solid;
 }
 
-#buttonBoxId {
+/* #buttonBoxId {
     position: absolute;
     bottom: 0px;
     width: 200px;
     height: 20px;
     width: 88%;
     margin: 0 auto;
-    /* border: yellowgreen solid 4px; */
 }
 
 #eraseButtonId {
@@ -45,13 +44,33 @@
     padding: 10px 10px 10px 10px;
     margin: 0px 0px 15px 0px;
     border-radius: 10px;
+} */
+
+#buttonBoxId {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    width: 200px;
+    height: 20px;
+    width: 88%;
+}
+
+#eraseButtonId {
+    width: 80px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+#clearButtonId {
+    width: 80px;
+    height: 20px;
+    border-radius: 10px;
 }
 
 #gridBoxId {
     flex: 1;
     width: 300px;
     height: 800px;
-    border: blue solid 4px;
+    border: white solid 4px;
 }
 
 .gridSquaresClass {
@@ -59,6 +78,6 @@
     width: 10px;
     height: 10px;
     padding: 4px;
-    border: blue 1px solid;
+    border: rgb(8, 97, 92) 1px solid;
 }
 
