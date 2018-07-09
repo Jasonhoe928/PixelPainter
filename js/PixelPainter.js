@@ -19,9 +19,15 @@ buttonBox.appendChild(eraseButton);
 function eraseColor() {
     if(whiteColorVar === false) {
         whiteColorVar = true;
+        for(let i = 0; i < 1080; i++) { //pixel grid color changing eventListener
+            gridSquaresVar[i].removeEventListener('mouseover', changeColorMouseover)
+        }
     } else {
         whiteColorVar = false;
+        for(let i = 0; i < 1080; i++) { //pixel grid color changing eventListener
+            gridSquaresVar[i].addEventListener('mouseover', changeColorMouseover)
     }
+}
 }
 
 
