@@ -8,10 +8,10 @@
     flex: 0 0 25%;
     position: relative;
     width: 200px;
-    height: 420px;
+    height: 410px;
     padding: 10px;
     margin: 10px;
-    border: green solid 3px;
+    /* border: green solid 3px; */
 }
 .paletteSquareClass {
     display: inline-block;
@@ -28,7 +28,23 @@
     height: 20px;
     width: 88%;
     margin: 0 auto;
-    border: yellowgreen solid 4px;
+    /* border: yellowgreen solid 4px; */
+}
+
+#eraseButtonId {
+    width: 80px;
+    height: 15px;
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 15px 15px;
+    border-radius: 10px;
+}
+
+#clearButtonId {
+    width: 80px;
+    height: 15px;
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 15px 0px;
+    border-radius: 10px;
 }
 
 #gridBoxId {
@@ -46,10 +62,3 @@
     border: blue 1px solid;
 }
 
-/* .pixelBoxDownClass {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    padding: 4px;
-    border: blue 1px solid;
-} */

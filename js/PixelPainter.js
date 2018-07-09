@@ -10,7 +10,14 @@ let buttonBox = document.createElement('div');
 buttonBox.id = 'buttonBoxId';
 paletteBox.appendChild(buttonBox)
 
-
+let eraseButton = document.createElement('button');
+eraseButton.id = 'eraseButtonId';
+eraseButton.innerHTML = 'Erase';
+buttonBox.appendChild(eraseButton);
+let clearButton = document.createElement('button');
+clearButton.id = 'clearButtonId';
+clearButton.innerHTML = 'Clear';
+buttonBox.appendChild(clearButton);
 
 for(let i = 0; i < 50; i++) {
     let paletteSquares = document.createElement('div');
