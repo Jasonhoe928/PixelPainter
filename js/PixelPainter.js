@@ -16,7 +16,7 @@ eraseButton.innerHTML = 'Erase';
 eraseButton.addEventListener('click', eraseColor) //erase button eventListener
 buttonBox.appendChild(eraseButton);
 
-function eraseColor() {
+function eraseColor() { //erase button eventListener callback
     if(whiteColorVar === false) {
         whiteColorVar = true;
         for(let i = 0; i < 1080; i++) { //pixel grid color changing eventListener
@@ -30,22 +30,6 @@ function eraseColor() {
 }
 }
 
-
-// function eraseColor() { //needs access to gridSquaresVar object?
-//     for(let i = 0; i < gridSquaresVar.length; i++) {
-//         let gridSquares = document.createElement('div'); //why can't I add changeColorMouseover to this for loop?
-//         gridSquares.className = 'gridSquaresClass';
-//         gridSquares.addEventListener('click', eraseColorClick)
-//         gridSquaresVar[i].style.backgroundColor = 'white';
-//         gridBox.appendChild(gridSquares)
-//     }
-// }
-
-// function eraseColorClick() {
-//     whiteColorVar.style.backgroundColor = 'white';
-//     console.log('fired')
-// }
-
 let clearButton = document.createElement('button'); //creates clear button
 clearButton.id = 'clearButtonId';
 clearButton.innerHTML = 'Clear';
@@ -58,6 +42,31 @@ function clearColor() { //clear color for loop, would like to use only callback
     }
 }
 
+let saveButton = document.createElement('button');
+saveButton.id = 'saveButtonId';
+saveButton.innerHTML = 'Save';
+saveButton.addEventListener('click', saveState);
+buttonBox.appendChild(saveButton);
+
+const saveArray = [];
+function saveState() {
+    for (let i = 0; gridSquaresVar.length; i++) {
+        saveArray.push(gridSquaresVar[i].style.backgroundColor)
+    }
+}
+
+
+let loadButton = document.createElement('button');
+loadButton.id = 'loadButtonId';
+loadButton.innerHTML = 'Load';
+loadButton.addEventListener('click', loadState);
+buttonBox.appendChild(loadButton);
+
+function loadState() {
+    for (let i = 0; gridSquaresVar.length; i++) {
+        gridSquaresVar[i].style.backgroundColor = saveArray[i];
+    }
+}
 
 let paletteArray = ['Aliceblue', 'AntiqueWhite', 'b30000', 'Aqua', 'ff1a66', '66ff66', '99004d' , 'Aquamarine', 'Azure', 'orange' , 'black' , 'red' , 'yellow' , 'blue' , 'indigo' , 'violet' , 'blueviolet' , 'brown' , 'blueviolet' , 'cadetblue' , 'chocolate' , 'coral' , 'cornflowerblue' , 'crimson' , 'cyan' , 'darkblue' , 'darkcyan' , 'darkmagenta' , 'darkgoldenrod' , 'darkorchid' , 'darkslateblue' , 'darkseagreen' , 'darkslateblue' , 'darkslategrey' , 'DeepSkyBlue' , 'firebrick' , 'fucia' , 'DimGray' , 'gold' , 'DimGray','ivory' , 'Khaki' , 'lavender' , 'LightCoral' , 'limegreen' , 'mediumblue' , 'MediumSlateBlue' , 'orangered' , 'saddlebrown' , 'springgreen']
 let paletteSquareVar = document.getElementsByClassName('paletteSquareClass'); //palette grid divs
@@ -79,7 +88,7 @@ function setColor() { //change color callback, should it go in for loop?
     setColorVar = this.style.backgroundColor;
 }
 
-for (let i = 0; i < paletteArray.length; i++) { //palette color changing for loop
+for (let i = 0; i < paletteArray.length; i++) { //palette color changing from palette array for loop
     paletteSquareVar[i].style.backgroundColor = paletteArray[i];
 }
 
