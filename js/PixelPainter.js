@@ -1,14 +1,34 @@
-var paletteBox = document.createElement('div');
+let paletteBox = document.createElement('div');
 paletteBox.id = 'paletteId';
 pixelPainter.appendChild(paletteBox);
 
-for(var i = 0; i < 15; i++) {
-    var paletteSquares = document.createElement('div');
-    paletteSquares.className = 'squareUpClass';
+let gridBox = document.createElement('div');
+gridBox.id = 'gridBoxId';
+pixelPainter.appendChild(gridBox);
+
+let buttonBox = document.createElement('div');
+buttonBox.id = 'buttonBoxId';
+paletteBox.appendChild(buttonBox)
+
+
+
+for(let i = 0; i < 50; i++) {
+    let paletteSquares = document.createElement('div');
+    paletteSquares.className = 'paletteSquareClass';
+    // paletteSquareVar.addEventListener('click', changeColor);
     paletteBox.appendChild(paletteSquares)
+}
+// function changeColor() {
 
-    // for(var j = 0; j < 6; j++) {
-    //     let squaresDown = document.createElement('div');
+// }
+let paletteArray = ['Aliceblue', 'AntiqueWhite', 'b30000', 'Aqua', 'ff1a66', '66ff66', '99004d' , 'Aquamarine', 'Azure', 'orange' , 'black' , 'red' , 'yellow' , 'blue' , 'indigo' , 'violet' , 'blueviolet' , 'brown' , 'blueviolet' , 'cadetblue' , 'chocolate' , 'coral' , 'cornflowerblue' , 'crimson' , 'cyan' , 'darkblue' , 'darkcyan' , 'darkmagenta' , 'darkgoldenrod' , 'darkorchid' , 'darkslateblue' , 'darkseagreen' , 'darkslateblue' , 'darkslategrey' , 'DeepSkyBlue' , 'firebrick' , 'fucia' , 'DimGray' , 'gold' , 'DimGray','ivory' , 'Khaki' , 'lavender' , 'LightCoral' , 'limegreen' , 'mediumblue' , 'MediumSlateBlue' , 'orangered' , 'saddlebrown' , 'springgreen']
+let paletteSquareVar = document.getElementsByClassName('paletteSquareClass');
+for (let i = 0; i < paletteArray.length; i++) {
+    paletteSquareVar[i].style.backgroundColor = paletteArray[i];
+}
 
-    // }
+for(let i = 0; i < 1080; i++) {
+    let gridSquares = document.createElement('div');
+    gridSquares.className = 'gridSquaresClass';
+    gridBox.appendChild(gridSquares);
 }
