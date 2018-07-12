@@ -1,3 +1,11 @@
+// for(let i = 0; i < 10; i++) {
+//     let testDivs = createElement('div');
+//     pixelPainter.appendChild(testDivs)
+// }
+
+
+
+
 let paletteBox = document.createElement('div'); //creates palette box
 paletteBox.id = 'paletteId';
 pixelPainter.appendChild(paletteBox);
@@ -48,10 +56,12 @@ saveButton.innerHTML = 'Save';
 saveButton.addEventListener('click', saveState);
 buttonBox.appendChild(saveButton);
 
-const saveArray = [];
+let saveArray;
 function saveState() {
-    for (let i = 0; gridSquaresVar.length; i++) {
+      saveArray = [];
+      for (let i = 0; gridSquaresVar.length; i++) {
         saveArray.push(gridSquaresVar[i].style.backgroundColor)
+        console.log(saveArray)
     }
 }
 
@@ -99,12 +109,18 @@ for(let i = 0; i < 1080; i++) { //pixel grid modifying for loop
 }
 
 for(let i = 0; i < 1080; i++) { //pixel grid color changing eventListener
-    gridSquaresVar[i].addEventListener('mouseover', changeColorMouseover)
+    gridSquaresVar[i].addEventListener('mousedown', setColorChangeMouseOver)
     gridSquaresVar[i].addEventListener('click', whiteBackgroundClick)
-    gridSquaresVar[i].addEventListener('mousedown', whiteBackgroundMouseDown)
+    gridSquaresVar[i].addEventListener('mouseup', removeColorMouseUp)
 }
 
-function changeColorMouseover() { //color changing callback
+function setColorChangeMouseOver() { //color changing eventListener for mouseover callback
+   for (let i = 0; i < 1080; i++) {
+       gridSquaresVar[i].addEventListener('mouseover', dragColorMouseOver)
+   }
+}
+
+function dragColorMouseOver() {
     this.style.backgroundColor = setColorVar;
 }
 
@@ -115,8 +131,8 @@ function whiteBackgroundClick() {
     
 }
 
-function whiteBackgroundMouseDown() {
-    if(whiteColorVar === true) {
-        this.style.backgroundColor = 'white';
+function removeColorMouseUp() {
+    for(let i = 0; i < 1080; i++) {
+        gridSquaresVar[i].removeEventListener('mouseover', dragColorMouseOver);
     }
 }
